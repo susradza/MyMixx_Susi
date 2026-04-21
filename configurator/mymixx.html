@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyMIXX Konfigurator</title>
+    <link rel="stylesheet" href="mymixx.css" />
+    <script src="mymixx.js" defer></script>
+    <link rel="shortcut icon" href="Icons/img_index/logo-mymixx_2024_FI.png" type="image/x-icon"/>
+  </head>
+
+  <body>
+    <header class="header-area">
+      <div class="header-container">
+        <img src="Img/granolaBowl.png" alt="Blaue Müslischüssel" id="granola-bowl">
+          <div class="header-content">
+            <h1>Natürlich gut.</h1>
+            <h2>Einfach lecker.</h2>
+            <p>Erstell Dir Dein persönliches Müsli in nur wenigen Minuten</p>
+          </div>
+            <a href="/index/index.html">
+            <img class="company-logo" src="Icons/img_index/logo_mymixx_2024.png" alt="MyMIXX Logo" width="250"/>
+            </a>
+          </div>
+    </header>
+
+    <!-- Filterkategorien -->
+    <nav class="filter-pills">
+      <div class="filter-buttons">
+        <button data-name="base-granola" class="active icon-btn">
+          <img src="Icons/icon_svg/baseIcon.svg" alt="Basis Cerealien Icon" class="base-granola-icon"/>
+            <span>Basis Cerealien</span>
+        </button>
+
+        <button data-name="dry-fruits-topping">
+          <img src="Icons/icon_svg/fruitsIcon.svg" alt="Getrocknete Früchte Icon" class="dry-fruits-icon"/>
+            <span>Getrocknete Früchte</span>
+        </button>
+
+        <button data-name="nuts-topping">
+          <img src="Icons/icon_svg/nutsIcon-04.svg" alt="Nuss Icon" class="nuts-icon"/>
+            <span>Nüsse & Samen</span>
+        </button>
+
+        <button data-name="superfoods-topping">
+          <img src="Icons/icon_svg/specialIcon.svg" alt="Spezial Icon" class="superfood-icon"/>
+            <span>Superfood</span>
+        </button>
+
+        <button data-name="extras-topping">
+          <img src="Icons/icon_svg/sweetIcons.svg" alt="Süßigkeiten Icon" class="sweet.icon"/>
+            <span>Extras & Süßungsmittel</span>
+        </button>
+
+        <button data-name="fluids-topping">
+          <img src="Icons/icon_svg/fluidsIcon.svg" alt="Flüssigkeiten Icon" />
+            <span>Flüssigkeiten für Müsli & Porridge</span>
+        </button>
+          <a href="#checkout" class="toCartMobile"><i class="fa-solid fa-cart-shopping"></i>Zum Warenkorb</a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Productcard Übersicht -->
+      <div class="content" id="main-content">
+        <div class="content-section"></div>
+      </div>
+
+      <!-- Warenkorb Stickybar -->
+      <section id="checkout" aria-label="Warenkorb">
+        <div class="container-checkout">
+          <div class="checkout-title-wrapper">
+            <h3 class="checkout-header-text"><img src="Icons/icon_svg/cart-shopping-solid-full.svg" class="fa-solid fa-cart-shopping">Dein MyMIXX</h3>
+          </div>
+          <div>
+        </div>
+          <div class="cart-items-wrapper">
+              <div class="checkout-head">
+                <div class="columnheader-left">Produkt</div>
+                <div class="columnheader-right">Anzahl</div>
+              </div><hr/>
+
+            <div class="checkout-list" id="checkoutList"></div>
+            <section class="checkout-summary" aria-label="Zusammenfassung">
+              <div class="summary-lines">
+                <div class="summary-row">
+                  <h4>Gesamtsumme:</h4>
+                  <span class="summary-value" id="total">0,00 €</span>
+                </div><hr>
+
+                <form class="summary-row" id="order-form" name="order-summary">
+                  <!-- Formularbereich für das Lieferdatum -->
+                    <div class="form-block">
+                      <h4>Wähle ein Abholdatum:</h4>
+                      <div class="radio-grid radio-grid--dates">
+                        <fieldset class="radio-row">
+                          <input type="radio" name="deliveryDate" id="tomorrow"/>
+                          <label for="tomorrow" class="tomorrow">21.01.2026</label>
+                        </fieldset>
+
+                        <fieldset class="radio-row">
+                          <input type="radio" name="deliveryDate" id="overmorrow"/>
+                          <label for="overmorrow" class="overmorrow">22.01.2026</label>
+                        </fieldset>
+                      </div>
+                    </div>
+
+                    <!-- Formularbereich für den Standort -->
+                    <div class="form-block">
+                      <h4>Wähle einen Standort:</h4>
+                      <div class="radio-grid">
+                        <fieldset class="radio-row">
+                          <input type="radio" id="duesseldorf" name="location" value="Düsseldorf"/>
+                          <label for="duesseldorf">Düsseldorf</label>
+                        </fieldset>
+
+                        <fieldset class="radio-row">
+                          <input type="radio" id="mainz" name="location" value="Mainz"/>
+                          <label for="mainz">Mainz</label>
+                        </fieldset>
+
+                        <fieldset class="radio-row">
+                          <input type="radio" id="frankfurt" name="location" value="Frankfurt"/>
+                          <label for="frankfurt">Frankfurt</label>
+                        </fieldset>
+
+                        <fieldset class="radio-row">
+                          <input type="radio" id="berlin" name="location" value="Berlin"/>
+                          <label for="berlin">Berlin</label>
+                        </fieldset>
+                      </div>
+                    </div>
+                </form>
+              </div>
+              <button class="order-btn" type="button">Jetzt kostenpflichtig bestellen</button>
+            </section>
+            </div>
+          </div>
+      </section>
+    </main>
+
+    <!-- Hier ist das Overlay beim abschließen der Bestellung -->
+    <div class="overlay" id="overlay-complete">
+      <div class="overlay-box">
+        <button class="close-btn" aria-label="Overlay schließen" title="Overlay schließen" onclick="document.getElementById('overlay-complete').style.display = 'none'">
+            <img src="Icons/icon_png/xmark-solid-full.svg" class="x-mark-overlay">
+        </button>
+        <div class="overlay-content">
+          <img src="Img/overlayTickIcon.png" alt="Häkchen Icon" class="overlay-icon"/>
+          <h3>Deine Bestellung ist nun sendebereit</h3>
+          <p>Bestellnummer: <strong>06328991-MYX</strong></p>
+            <p class="modal-text">
+            Dein MyMIXX-Müsli wird jetzt frisch für Dich zubereitet.<br/>
+            Du kannst Deine Bestellung<strong id="overlayDate">am xx.xx.xxxx</strong><br/>bei uns<strong>
+            ab 9 Uhr</strong>in der Filiale <strong id="overlayLocation">Standort</strong> abholen.
+            </p>
+          <div class="return-btn-overlay">
+            <a href="index.html"class="return-home-btn">Homepage</a>
+            <a href="mymixx.html"class="return-LP-btn">Neues Müsli</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div id="footwrap">
+        <section id="mymixx">
+          <h3>MyMIXX</h3>
+          <ul>
+            <li><a href="#">Über uns</a></li>
+            <li><a href="#">Nachhaltigkeit</a></li>
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutz</a></li>
+            <li><a href="#">Allgemeine AGB</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Presse</a></li>
+          </ul>
+        </section>
+        <section id="ernaehrung">
+          <h3>Ernährung</h3>
+          <ul>
+            <li><a href="#">Bewusste Ernährung</a></li>
+            <li><a href="#">Rezepte</a></li>
+            <li><a href="#">Müsli-Zutaten</a></li>
+          </ul>
+        </section>
+        <section id="siegel">
+          <h3>Ökologische Verantwortung</h3>
+          <ul>
+            <li>
+              <a href="#"><img src="Icons/img_index/siegel-deutsches-bio-siegel.svg" alt="Biosiegel 1"/></a>
+            </li>
+            <li>
+              <a href="#"><img src="Icons/img_index/smb_biosiegel-euroblatt.svg" alt="Biosiegel 2"/></a>
+            </li>
+            <li>
+              <a href="#"><img src="Icons/img_index/ohne-gentechnik-logo.svg" alt="Biosiegel 3"></a>
+            </li>
+          </ul>
+        </section>
+        <section id="socmed">
+          <h3>MyMIXX folgen</h3>
+          <ul>
+            <li>
+              <a href="#"><img src="Icons/img_index/facebook.svg" alt="Facebook"/></a>
+            </li>
+            <li>
+              <a href="#"><img src="Icons/img_index/instagram.svg" alt="Instagram"/></a>
+            </li>
+            <li>
+              <a href="#"><img src="Icons/img_index/pinterest.svg" alt="Pinterest"/></a>
+            </li>
+            <li>
+              <a href="#"><img src="Icons/img_index/youtube.svg" alt="YouTube"/></a>
+            </li>
+            <li>
+              <a href="#"><img src="Icons/img_index/tiktok.svg" alt="TikTok" /></a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
